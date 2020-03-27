@@ -1,0 +1,6 @@
+---
+
+bspwm_packages:
+  - feh
+  - bspwm
+  - sxhkd

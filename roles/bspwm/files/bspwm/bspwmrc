@@ -1,0 +1,13 @@
+#!/bin/sh
+
+command_exists() {
+	command -v "$@" >/dev/null 2>&1
+}
+
+command_exists picom && picom &
+
+feh --no-fehbg --bg-fill ~/.wallpapers/gradient.png &
+
+sxhkd &
+
+bspc monitor -d I II III IV V VI VII VIII IX X

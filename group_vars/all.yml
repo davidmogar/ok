@@ -1,0 +1,9 @@
+---
+
+mirrorlist_countries:
+  - CH
+  - FR
+
+st_patches:
+  - scrollback:
+      - st-scrollback

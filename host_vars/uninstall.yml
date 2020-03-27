@@ -1,0 +1,18 @@
+---
+
+#
+# Select roles to uninstall
+#
+# 'install': Install the role
+# 'remove':  Uninstall the role
+# Any other value will ignore the role (neither install nor uninstall)
+#
+alacritty: 'remove'
+bspwm: 'remove'
+cht_sh: 'remove'
+cli_utilities: 'remove'
+neovim: 'remove'
+spotify: 'remove'
+termite: 'remove'
+vscode: 'remove'
+xorg: 'remove'

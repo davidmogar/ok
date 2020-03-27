@@ -1,0 +1,42 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ bspwm_packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Create bspwm config file
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    src: bspwm
+
+- name: Create sxhkd config file
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0655
+    owner: "{{ user_id }}"
+    src: sxhkd
+
+- name: Add xdg profile unit
+  become: yes
+  copy:
+    dest: "/etc/profile.d/xdg.sh"
+    group: root
+    mode: 0644
+    owner: root
+    src: xdg.sh
+
+- name: Add wallpapers
+  become: yes
+  copy:
+    dest: "{{ user_home }}"
+    group: "{{ user_id}}"
+    mode: 0644
+    owner: "{{ user_id}}"
+    src: ".wallpapers"

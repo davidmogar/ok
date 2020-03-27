@@ -1,0 +1,66 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ mirrorlist_packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Generate filters
+  check_mode: no
+  set_fact:
+    reflector_filters: "{{ filters | join(' ') }}"
+  vars:
+    filters:
+      - "--latest {{ mirrorlist_latest }}"
+      - "{{ mirrorlist_countries | map('regex_replace', '^', '--country ') | join(' ') }}"
+      - "{{ mirrorlist_protocols | map('regex_replace', '^', '--protocol ') | join(' ') }}"
+      - "--age {{ mirrorlist_age }}"
+
+- name: Ensure hooks directory exists
+  file:
+    mode: 0755
+    path: "/etc/pacman.d/hooks"
+    state: directory
+
+- name: Create hook
+  become: yes
+  template:
+    dest: "/etc/pacman.d/hooks/mirrorupgrade.hook"
+    group: root
+    mode: 0644
+    owner: root
+    src: hook.j2
+
+- name: Create systemd service
+  become: yes
+  template:
+    dest: "/etc/systemd/system/reflector.service"
+    group: root
+    mode: 0644
+    owner: root
+    src: service.j2
+
+- name: Enable service and ensure it is not masked
+  become: yes
+  systemd:
+    daemon_reload: yes
+    enabled: yes
+    masked: no
+    name: reflector
+    state: started
+
+- name: Create systemd timer
+  become: yes
+  copy:
+    dest: "/etc/systemd/system/reflector.timer"
+    src: reflector.timer
+
+- name: Enable timer
+  become: yes
+  systemd:
+    daemon_reload: yes
+    enabled: yes
+    name: reflector.timer
+    state: started

@@ -1,0 +1,24 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ neovim_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Ensure config directory exists
+  file:
+    owner: "{{ group }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    path: "{{ user_home }}/.config/nvim"
+    state: directory
+
+- name: Create neovim config file
+  copy:
+    dest: "{{ user_home }}/.config/nvim/init.vim"
+    group: "{{ user_id }}"
+    mode: 0644
+    owner: "{{ user_id }}"
+    src: init.vim

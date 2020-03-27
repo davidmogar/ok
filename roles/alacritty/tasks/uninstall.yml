@@ -1,0 +1,13 @@
+---
+
+- name: Ensure required packages are removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ alacritty_package_name }}"
+    state: absent
+
+- name: Ensure config directory is removed
+  file:
+    path: "{{ user_home }}/.config/alacritty"
+    state: absent

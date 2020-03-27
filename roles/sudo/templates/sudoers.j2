@@ -1,0 +1,8 @@
+## Allow root to execute any command
+root    ALL=(ALL)       ALL
+
+## Allow members of group wheel to execute any command
+%wheel  ALL=(ALL)       ALL
+
+## Allow aur_builder to execute pacman without password
+aur_builder ALL=(ALL) NOPASSWD: /usr/bin/pacman

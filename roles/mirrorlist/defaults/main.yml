@@ -1,0 +1,11 @@
+---
+
+mirrorlist_age: 24
+
+mirrorlist_countries: []
+
+mirrorlist_latest: 10
+
+mirrorlist_protocols:
+  - http
+  - https

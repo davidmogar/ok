@@ -1,0 +1,8 @@
+---
+
+- name: Ensure required packages are removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ vscode_package_name }}"
+    state: absent

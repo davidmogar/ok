@@ -1,0 +1,23 @@
+---
+
+#
+# Select roles to install
+#
+# 'install': Install the role
+# 'remove':  Uninstall the role
+# Any other value will ignore the role (neither install nor uninstall)
+#
+alacritty: 'install'
+bspwm: 'install'
+cht_sh: 'install'
+cli_utilities: 'install'
+neovim: 'install'
+spotify: 'install'
+vscode: 'install'
+xorg: 'install'
+
+#
+# Role-specific settings
+#
+# Enable/disable fuzzy completion (bash & zsh)?
+xorg_driver: nvidia

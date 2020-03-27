@@ -1,0 +1,14 @@
+---
+
+- name: Ensure required packages are removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ cht_sh_packages }}"
+    state: absent
+
+- name: Remove /usr/local/bin/cht.sh
+  become: yes
+  file:
+    path: /usr/local/bin/cht.sh
+    state: absent

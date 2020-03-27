@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: bspwm == 'install'
+
+- include_tasks: uninstall.yml
+  when: bspwm == 'remove'

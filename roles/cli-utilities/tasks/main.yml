@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: cli_utilities == 'install'
+
+- include_tasks: uninstall.yml
+  when: cli_utilities == 'remove'

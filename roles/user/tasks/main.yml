@@ -1,0 +1,26 @@
+---
+
+- name: Create user
+  user:
+    groups: wheel
+    name: "{{ user_id }}"
+
+- name: Allow to change expired passwords on login
+  become: yes
+  pamd:
+    control: include
+    module_path: system-local-login
+    name: login
+    new_control: include
+    new_module_path: system-local-login
+    new_type: password
+    type: session
+    state: before
+
+- name: Unlock password and set it to empty
+  become: yes
+  command: passwd -d "{{ user_id }}"
+
+- name: Expire password
+  become: yes
+  command: chage -d 0 "{{ user_id }}"

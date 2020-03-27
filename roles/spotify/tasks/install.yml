@@ -1,0 +1,9 @@
+---
+
+- name: Ensure spotify is installed
+  include_role:
+    name: aur
+  vars:
+    aur_package:
+      key: "{{ spotify_gpg_key }}"
+      name: "{{ spotify_package_name }}"

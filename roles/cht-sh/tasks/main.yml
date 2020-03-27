@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: cht_sh == 'install'
+
+- include_tasks: uninstall.yml
+  when: cht_sh == 'remove'

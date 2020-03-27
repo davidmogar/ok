@@ -1,0 +1,16 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ alacritty_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Create alacritty config file
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0644
+    owner: "{{ user_id }}"
+    src: alacritty

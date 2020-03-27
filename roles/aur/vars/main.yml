@@ -1,0 +1,4 @@
+---
+
+aur_required_packages:
+  - base-devel

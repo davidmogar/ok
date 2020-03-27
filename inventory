@@ -1,0 +1,6 @@
+[all]
+generic ansible_connection=local
+uninstall ansible_connection=local
+
+[home]
+zoidberg ansible_connection=local

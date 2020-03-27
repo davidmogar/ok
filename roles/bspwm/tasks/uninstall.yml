@@ -1,0 +1,27 @@
+---
+
+- name: Ensure required packages are removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ bspwm_packages }}"
+    state: absent
+
+- name: Ensure config directories are removed
+  file:
+    path: "{{ user_home }}/.config/{{ item }}"
+    state: absent
+  loop:
+    - bspwm
+    - sxhkd
+
+- name: Ensure xdg profile unit is removed
+  become: yes
+  file:
+    path: "/etc/profile.d/xdg.sh"
+    state: absent
+
+- name: Ensure wallpapers directory is removed
+  file:
+    path: "{{ user_home }}/.wallpapers"
+    state: absent

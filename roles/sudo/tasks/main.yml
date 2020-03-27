@@ -1,0 +1,11 @@
+---
+
+- name: Set up sudoers
+  become: yes
+  template:
+    dest: "/etc/sudoers"
+    group: root
+    mode: 0400
+    owner: root
+    src: sudoers.j2
+    validate: "visudo -cf %s"

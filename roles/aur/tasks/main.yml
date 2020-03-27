@@ -1,0 +1,44 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ aur_required_packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Get user home directory
+  changed_when: false
+  register: aur_builder_home
+  shell: "getent passwd aur_builder  | awk -F: '{ print $6 }'"
+
+- name: Ensure aur directory exists
+  file:
+    mode: 0755
+    owner: aur_builder
+    path: "{{ aur_builder_home.stdout }}/.aur"
+    state: directory
+
+- always:
+    - name: Ensure build directory is removed
+      file:
+        path: "{{ aur_builder_home.stdout }}/.aur"
+        state: absent
+  block:
+    - name: Ensure gpg keys are imported
+      become: yes
+      become_user: aur_builder
+      command: "gpg --recv-keys {{ aur_package.key }}"
+      when: aur_package.key is defined
+
+    - name: Clone aur repository
+      become: yes
+      become_user: aur_builder
+      git:
+        repo: "https://aur.archlinux.org/{{ aur_package.name }}.git"
+        dest: "{{ aur_builder_home.stdout }}/.aur/{{ aur_package.name }}"
+
+    - name: Make package
+      become: yes
+      become_user: aur_builder
+      command: "chdir={{ aur_builder_home.stdout }}/.aur/{{ aur_package.name }} /usr/bin/makepkg -si --noconfirm"

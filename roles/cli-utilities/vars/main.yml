@@ -1,0 +1,18 @@
+---
+
+cli_utilities_packages:
+  - fzf
+  - htop
+  - iotop
+  - jq
+  - lastpass-cli
+  - man-db
+  - man-pages
+  - ncdu
+  - nmap
+  - ranger
+  - tig
+  - unrar
+  - unzip
+  - wget
+  - xclip

@@ -1,0 +1,8 @@
+---
+
+- name: Ensure spotify is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ spotify_package_name }}"
+    state: absent

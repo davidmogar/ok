@@ -14,13 +14,26 @@ TAGS=${TAGS:-all}
 check_dependencies() {
     info "Checking dependencies..."
 
+    missing_dependencies=false
+
     command_exists ansible || {
+        missing_dependencies=true
 		error "ansible is not installed"
 	}
 
     command_exists git || {
+        missing_dependencies=true
 		error "git is not installed"
 	}
+
+    command_exists sudo || {
+        missing_dependencies=true
+		error "sudo is not installed"
+	}
+
+    if [ "$missing_dependencies" = true ]; then
+        exit 1
+    fi
 }
 
 clone_repository() {
@@ -44,7 +57,6 @@ command_exists() {
 
 error() {
 	echo ${RED}"Error: $@"${RESET} >&2;
-    exit 1
 }
 
 info() {
@@ -54,7 +66,12 @@ info() {
 run_playbook() {
     info "Running playbook..."
     cd $LOCAL_PATH
-    ansible-playbook -i inventory playbook.yml --diff --limit $PROFILE --tags $TAGS --ask-become-pass
+    ansible-playbook \
+            --ask-become-pass \
+            --diff \
+            -i inventory playbook.yml \
+            --limit $PROFILE \
+            --tags $TAGS
 }
 
 setup_colors() {
@@ -76,6 +93,7 @@ warning() {
 main() {
     if ! [ $(id -u) = 0 ]; then
         error "This boostrap script must be executed by root"
+        exit 1
     fi
 
     setup_colors

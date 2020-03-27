@@ -1,0 +1,15 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ cht_sh_packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Download cht.sh
+  become: yes
+  get_url:
+    dest: /usr/local/bin/cht.sh
+    mode: '0755'
+    url: https://cht.sh/:cht.sh

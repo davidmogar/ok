@@ -1,0 +1,98 @@
+---
+
+#
+# Ensure user_id is defined
+#
+- hosts: all
+  tasks:
+    - name: Assert that user_id is defined when running as root
+      assert:
+        msg: "user_id must be defined when running as root (missing --extra_var?)"
+        that:
+          - user_id is defined
+      when: ansible_facts['user_id'] == "root"
+
+    - name: Register user_id
+      set_fact:
+        user_id: "{{ ansible_user_id }}"
+      when: ansible_facts['user_id'] != "root"
+  tags: always
+
+#
+# Generate mirrorlist
+#
+- hosts: all
+  roles: [ mirrorlist ]
+  tags: always
+
+#
+# Create main user and aur_builder
+#
+- hosts: all
+  tasks:
+    - import_role:
+        name: user
+      when: ansible_facts['user_id'] == "root"
+
+    - name: Get user home directory
+      changed_when: false
+      register: getent
+      shell: "getent passwd {{ user_id }}  | awk -F: '{ print $6 }'"
+
+    - name: Register user_id
+      set_fact:
+        user_home: "{{ getent.stdout }}"
+
+    - user:
+        group: wheel
+        name: aur_builder
+        system: yes
+  tags: always
+
+#
+# Set up sudo so aur_builder can run pacman without password
+#
+- hosts: all
+  roles: [ sudo ]
+  tags: always
+
+#
+# Install roles
+#
+- hosts: all
+  roles: [ alacritty ]
+  tags:
+    - desktop
+    - alacritty
+
+- hosts: all
+  roles: [ bspwm ]
+  tags:
+    - bspwm
+    - desktop
+
+- hosts: all
+  roles: [ cht-sh ]
+  tags: cht-sh
+
+- hosts: all
+  roles: [ cli-utilities ]
+  tags: cli-utilities
+
+- hosts: all
+  roles: [ neovim ]
+  tags: neovim
+
+- hosts: all
+  roles: [ spotify ]
+  tags: spotify
+
+- hosts: all
+  roles: [ vscode ]
+  tags: vscode
+
+- hosts: all
+  roles: [ xorg ]
+  tags:
+    - desktop
+    - xorg
