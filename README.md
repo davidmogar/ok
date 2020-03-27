@@ -1,4 +1,4 @@
-<p align="center"><img height="250" src="https://github.com/davidmogar/ok/blob/resources/ok.png?raw=true"></p>
+<p align="center"><img height="250" src="https://github.com/davidmogar/ok/blob/resources/ok-min.png?raw=true"></p>
 
 <p align="center"><strong>An Ansible playbook to configure an Arch Linux workstation</strong></p>
 <p align="center">
