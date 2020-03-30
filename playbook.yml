@@ -7,7 +7,7 @@
   tasks:
     - name: Assert that user_id is defined when running as root
       assert:
-        msg: "user_id must be defined when running as root (missing --extra_var?)"
+        msg: "user_id must be defined when running as root (missing --extra-vars "user_id=USER"?)"
         that:
           - user_id is defined
       when: ansible_facts['user_id'] == "root"
@@ -62,13 +62,19 @@
 - hosts: all
   roles: [ alacritty ]
   tags:
-    - desktop
     - alacritty
+    - desktop
 
 - hosts: all
   roles: [ bspwm ]
   tags:
     - bspwm
+    - desktop
+
+- hosts: all
+  roles: [ chromium ]
+  tags:
+    - chromium
     - desktop
 
 - hosts: all
@@ -80,12 +86,60 @@
   tags: cli-utilities
 
 - hosts: all
+  roles: [ cursor ]
+  tags:
+    - cursor
+    - desktop
+
+- hosts: all
+  roles: [ fonts ]
+  tags:
+    - desktop
+    - fonts
+
+- hosts: all
+  roles: [ gtk ]
+  tags:
+    - desktop
+    - gtk
+
+- hosts: all
   roles: [ neovim ]
   tags: neovim
 
 - hosts: all
+  roles: [ notifications ]
+  tags:
+    - desktop
+    - notifications
+
+- hosts: all
+  roles: [ picom ]
+  tags:
+    - desktop
+    - picom
+
+- hosts: all
+  roles: [ polybar ]
+  tags:
+    - desktop
+    - polybar
+
+- hosts: all
+  roles: [ rofi ]
+  tags:
+    - desktop
+    - rofi
+
+- hosts: all
   roles: [ spotify ]
   tags: spotify
+
+- hosts: all
+  roles: [ sxhkd ]
+  tags:
+    - desktop
+    - sxhkd
 
 - hosts: all
   roles: [ vscode ]

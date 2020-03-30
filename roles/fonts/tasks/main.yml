@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: fonts == 'install'
+
+- include_tasks: uninstall.yml
+  when: fonts == 'remove'

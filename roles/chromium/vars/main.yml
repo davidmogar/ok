@@ -1,0 +1,5 @@
+---
+
+chromium_package_name: chromium
+
+widevine_package_name: chromium-widevine

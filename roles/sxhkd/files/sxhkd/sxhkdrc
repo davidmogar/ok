@@ -1,0 +1,48 @@
+#
+# bspwm
+#
+# Quit or restart bspwm
+super + shift + {e,r}
+	bspc {quit,wm -r}
+
+# Lunch application/Change window
+super + {d,w}
+	rofi -show {run,window}
+
+# Close/kill application
+super + {_,shift + }q
+	bspc node -{c,k}
+
+# Swap the current node and the biggest node
+super + g
+	bspc node -s biggest.local
+
+# Toggle fullscreen
+super + f
+	bspc node -t \~fullscreen
+
+# Set the window state
+super + {shift + t,t,s}
+	bspc node -t {pseudo_tiled,tiled,floating}
+
+# Focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Focus or send to the given desktop
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+#
+# Terminal emulator
+#
+super + Return
+    alacritty
+
+#
+# Keyboard layout
+#
+super + shift + {e,u}
+	setxkbmap {es,us}

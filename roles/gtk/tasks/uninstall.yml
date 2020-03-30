@@ -1,0 +1,13 @@
+---
+
+- name: Ensure gtk package is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ gtk_package }}"
+    state: absent
+
+- name: Ensure gtk config directory is removed
+  file:
+    path: "{{ user_home }}/.config/gtk-3.0"
+    state: absent

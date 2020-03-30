@@ -16,3 +16,4 @@ cli_utilities_packages:
   - unzip
   - wget
   - xclip
+  - xdg-utils

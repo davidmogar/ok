@@ -1,0 +1,26 @@
+---
+
+- name: Ensure cursor is installed
+  include_role:
+    name: aur
+  vars:
+    aur_package:
+      name: "{{ cursor_package_name }}"
+
+- name: Create theme directory
+  become: yes
+  file:
+    group: root
+    owner: root
+    path: "/usr/share/icons/default"
+    state: directory
+    mode: 0755
+
+- name: Create index theme file
+  become: yes
+  copy:
+    dest: "/usr/share/icons/default/index.theme"
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    src: index.theme

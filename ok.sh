@@ -69,9 +69,10 @@ run_playbook() {
     ansible-playbook \
             --ask-become-pass \
             --diff \
-            -i inventory playbook.yml \
+            -i inventory \
             --limit $PROFILE \
-            --tags $TAGS
+            --tags $TAGS \
+            playbook.yml
 }
 
 setup_colors() {

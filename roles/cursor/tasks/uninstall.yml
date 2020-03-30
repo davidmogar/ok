@@ -1,0 +1,14 @@
+---
+
+- name: Ensure spotify is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ cursor_package_name }}"
+    state: absent
+
+- name: Remove theme directory
+  become: yes
+  file:
+    path: "/usr/share/icons/default"
+    state: absent

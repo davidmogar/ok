@@ -13,6 +13,7 @@
   shell: "getent passwd aur_builder  | awk -F: '{ print $6 }'"
 
 - name: Ensure aur directory exists
+  become: yes
   file:
     mode: 0755
     owner: aur_builder
@@ -21,6 +22,7 @@
 
 - always:
     - name: Ensure build directory is removed
+      become: yes
       file:
         path: "{{ aur_builder_home.stdout }}/.aur"
         state: absent

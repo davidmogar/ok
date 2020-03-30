@@ -1,0 +1,8 @@
+---
+
+- name: Ensure polybar is installed
+  include_role:
+    name: aur
+  vars:
+    aur_package:
+      name: "{{ polybar_package_name }}"

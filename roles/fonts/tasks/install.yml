@@ -1,0 +1,16 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ fonts_packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Ensure required aur packages are installed
+  include_role:
+    name: aur
+  loop: "{{ fonts_aur_packages }}"
+  vars:
+    aur_package:
+      name: "{{ item }}"

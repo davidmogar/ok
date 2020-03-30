@@ -1,0 +1,10 @@
+---
+
+fonts_packages:
+  - noto-fonts
+  - ttf-inconsolata
+  - ttf-nerd-fonts-symbols
+  - ttf-roboto
+
+fonts_aur_packages:
+  - ttf-meslo

@@ -1,0 +1,16 @@
+---
+
+- name: Ensure notifications is installed
+  include_role:
+    name: aur
+  vars:
+    aur_package:
+      name: "{{ notifications_packages }}"
+
+- name: Create notifications config file
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    src: dunst

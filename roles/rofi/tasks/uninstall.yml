@@ -1,0 +1,13 @@
+---
+
+- name: Ensure rofi package is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ rofi_package_name }}"
+    state: absent
+
+- name: Ensure rofi config directory is removed
+  file:
+    path: "{{ user_home }}/.config/rofi"
+    state: absent

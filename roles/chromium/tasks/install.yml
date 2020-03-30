@@ -1,0 +1,15 @@
+---
+
+- name: Ensure chromium is installed
+  become: yes
+  pacman:
+    name: "{{ chromium_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Ensure widevine is installed
+  include_role:
+    name: aur
+  vars:
+    aur_package:
+      name: "{{ widevine_package_name }}"

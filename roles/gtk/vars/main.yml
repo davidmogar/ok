@@ -1,0 +1,5 @@
+---
+
+gtk_packages:
+  - arc-gtk-theme
+  - gtk3

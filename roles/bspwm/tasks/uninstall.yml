@@ -13,15 +13,4 @@
     state: absent
   loop:
     - bspwm
-    - sxhkd
-
-- name: Ensure xdg profile unit is removed
-  become: yes
-  file:
-    path: "/etc/profile.d/xdg.sh"
-    state: absent
-
-- name: Ensure wallpapers directory is removed
-  file:
-    path: "{{ user_home }}/.wallpapers"
-    state: absent
+    - feh

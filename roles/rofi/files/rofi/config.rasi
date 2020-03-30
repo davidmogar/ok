@@ -1,0 +1,13 @@
+configuration {
+    color-active: "#00000000, #fff, #00000000, #926778, #fff";
+    color-normal: "#00000000, #fff, #00000000, #926778, #fff";
+    color-window: "#CC503249, #CC503249, #CC503249";
+    combi-modi: "window,run";
+    font: "Noto Sans Light 12";
+    lines: 4;
+    location: 2;
+    modi: "run,ssh,window";
+    separator-style: "none";
+    width: 20;
+    yoffset: 35;
+}

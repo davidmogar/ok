@@ -9,7 +9,7 @@
 
 - name: Ensure config directory exists
   file:
-    owner: "{{ group }}"
+    group: "{{ user_id }}"
     mode: 0755
     owner: "{{ user_id }}"
     path: "{{ user_home }}/.config/nvim"

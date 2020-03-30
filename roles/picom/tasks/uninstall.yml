@@ -1,0 +1,13 @@
+---
+
+- name: Ensure picom package is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ picom_package_name }}"
+    state: absent
+
+- name: Ensure picom config directory is removed
+  file:
+    path: "{{ user_home }}/.config/picom"
+    state: absent

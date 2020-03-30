@@ -1,0 +1,16 @@
+---
+
+- name: Ensure picom package is installed
+  become: yes
+  pacman:
+    name: "{{ picom_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Create picom config file
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0655
+    owner: "{{ user_id }}"
+    src: picom

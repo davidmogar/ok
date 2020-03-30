@@ -1,0 +1,13 @@
+---
+
+- name: Ensure notifications is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ notifications_package_names }}"
+    state: absent
+
+- name: Ensure config directory is removed
+  file:
+    path: "{{ user_home }}/.config/dunst"
+    state: absent

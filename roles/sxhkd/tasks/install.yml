@@ -1,0 +1,25 @@
+---
+
+- name: Ensure sxhkd package is installed
+  become: yes
+  pacman:
+    name: "{{ sxhkd_packages_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Create sxhkd config file
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0655
+    owner: "{{ user_id }}"
+    src: sxhkd
+
+- name: Add xdg profile unit
+  become: yes
+  copy:
+    dest: "/etc/profile.d/xdg.sh"
+    group: root
+    mode: 0644
+    owner: root
+    src: xdg.sh

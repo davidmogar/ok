@@ -1,0 +1,19 @@
+---
+
+- name: Ensure sxhkd package is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ sxhkd_package_name }}"
+    state: absent
+
+- name: Ensure sxhkd config directory is removed
+  file:
+    path: "{{ user_home }}/.config/sxhkd"
+    state: absent
+
+- name: Ensure xdg profile unit is removed
+  become: yes
+  file:
+    path: "/etc/profile.d/xdg.sh"
+    state: absent
