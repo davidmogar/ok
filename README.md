@@ -61,91 +61,91 @@ Note that both, limit and tags, are optional arguments.
   </thead>
   <tbody>
     <tr>
-      <td><a href="roles/alacritty"></a></td>
+      <td>alacritty<a href="roles/alacritty"></a></td>
       <td>Installs <a href="https://github.com/alacritty/alacritty">Alacritty</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/aur"></a></td>
+      <td>aur<a href="roles/aur"></a></td>
       <td>Manages the installation of <a href="https://aur.archlinux.org/">AUR</a> packages.</td>
     </tr>
     <tr>
-      <td><a href="roles/bspwm"></a></td>
+      <td>bspwm<a href="roles/bspwm"></a></td>
       <td>Installs <a href="https://github.com/baskerville/bspwm">bspwm</a> and set up the wallpaper by using <a href="https://github.com/derf/feh">feh</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/chromium"></a></td>
+      <td>chromium<a href="roles/chromium"></a></td>
       <td>Installs <a href="https://www.chromium.org/">Chromium</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/cht-sh"></a></td>
+      <td>cht-sh<a href="roles/cht-sh"></a></td>
       <td>Installs <a href="https://github.com/chubin/cheat.sh">cheat.sh</a>'s CLI.</td>
     </tr>
     <tr>
-      <td><a href="roles/cli-utilities"></a></td>
+      <td>cli-utilities<a href="roles/cli-utilities"></a></td>
       <td>Installs a curated <a href="roles/cli-utilities/vars/main.yml">list</a> of CLI utilities.</td>
     </tr>
     <tr>
-      <td><a href="roles/cursor"></a></td>
+      <td>cursor<a href="roles/cursor"></a></td>
       <td>Installs and configures the default cursor.</td>
     </tr>
     <tr>
-      <td><a href="roles/fonts"></a></td>
+      <td>fonts<a href="roles/fonts"></a></td>
       <td>Installs a curated <a href="roles/fonts/vars/main.yml">list</a> of fonts.</td>
     </tr>
     <tr>
-      <td><a href="roles/gtk"></a></td>
+      <td>gtk<a href="roles/gtk"></a></td>
       <td>Installs <a href="">gtk3</a> and the default theme.</td>
     </tr>
     <tr>
-      <td><a href="roles/mirrorlist"></a></td>
+      <td>mirrorlist<a href="roles/mirrorlist"></a></td>
       <td>Configures pacman's mirrorlist by using <a href="https://wiki.archlinux.org/index.php/Reflector">Reflector</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/neovim"></a></td>
+      <td>neovim<a href="roles/neovim"></a></td>
       <td>Installs <a href="https://neovim.io/">Neovim</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/notifications"></a></td>
+      <td>notifications<a href="roles/notifications"></a></td>
       <td>Configures system notifications to use <a href="https://github.com/dunst-project/dunst">dunst</a>. The flag <a href="chrome://flags/#enable-native-notifications">enable-native-notifications</a> is required to get native notifications with Chromium.</td>
     </tr>
     <tr>
-      <td><a href="roles/picom"></a></td>
+      <td>picom<a href="roles/picom"></a></td>
       <td>Installs <a href="https://github.com/yshui/picom">picom</a> compositor.</td>
     </tr>
     <tr>
-      <td><a href="roles/polybar"></a></td>
+      <td>polybar<a href="roles/polybar"></a></td>
       <td>Installs <a href="https://github.com/polybar/polybar">polybar</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/rofi"></a></td>
+      <td>rofi<a href="roles/rofi"></a></td>
       <td>Installs <a href="https://github.com/davatorium/rofi"></a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/spotify"></a></td>
+      <td>spotify<a href="roles/spotify"></a></td>
       <td>Installs <a href="https://www.spotify.com/">Spotify</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/sudo"></a></td>
+      <td>sudo<a href="roles/sudo"></a></td>
       <td>Configures sudoers file.</td>
     </tr>
     <tr>
-      <td><a href="roles/sxhkd"></a></td>
+      <td>sxhkd<a href="roles/sxhkd"></a></td>
       <td>Installs <a href="https://github.com/baskerville/sxhkd">sxhkd</a> and sets key bindings.</td>
     </tr>
     <tr>
-      <td><a href="roles/user"></a></td>
+      <td>user<a href="roles/user"></a></td>
       <td>Manages the creation of users.</td>
     </tr>
     <tr>
-      <td><a href="roles/vscode"></a></td>
+      <td>vscode<a href="roles/vscode"></a></td>
       <td>Installs <a href="https://code.visualstudio.com/">VS Code</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/xdg-user-dirs"></a></td>
+      <td>xdg-user-dirs<a href="roles/xdg-user-dirs"></a></td>
       <td>Configures default directories, allowing to point them to external volumes.</td>
     </tr>
     <tr>
-      <td><a href="roles/xorg"></a></td>
+      <td>xorg<a href="roles/xorg"></a></td>
       <td>Installs <a href="https://www.x.org/wiki">Xorg</a>.</td>
     </tr>
   </tbody>
