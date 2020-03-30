@@ -23,6 +23,7 @@ rofi: 'install'
 spotify: 'install'
 sxhkd: 'install'
 vscode: 'install'
+xdg_user_dirs: 'install'
 xorg: 'install'
 
 #
@@ -30,3 +31,10 @@ xorg: 'install'
 #
 # Enable/disable fuzzy completion (bash & zsh)?
 xorg_driver: nvidia
+
+#
+# Link xdg directories to an external volume (has to be mounted already)
+#
+xdg_user_dirs_extra_directories:
+  - development
+xdg_user_dirs_external_mount_point: '/mnt/shared'

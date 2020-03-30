@@ -1,0 +1,14 @@
+---
+
+- name: Ensure required package is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ xdg_user_dirs_package_name }}"
+    state: absent
+
+
+- name: Ensure config file is removed
+  file:
+    path: "{{ user_home }}/.config/user-dirs.dirs"
+    state: absent

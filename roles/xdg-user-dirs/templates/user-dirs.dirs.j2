@@ -1,0 +1,3 @@
+{% for directory, path in xdg_user_dirs_default_directories.items() %}
+XDG_{{ directory | upper }}_DIR="$HOME/{{ path }}"
+{% endfor %}

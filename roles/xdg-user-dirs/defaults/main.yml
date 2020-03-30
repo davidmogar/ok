@@ -1,0 +1,18 @@
+---
+
+# 'install', 'remove' or 'ignore'
+xdg_user_dirs: 'ignore'
+
+xdg_user_dirs_default_directories:
+  desktop: Desktop
+  documents: Documents
+  downloads: Downloads
+  music: Music
+  pictures: Pictures
+  public: Public
+  templates: Templates
+  videos: Videos
+
+xdg_user_dirs_extra_directories: []
+
+xdg_user_dirs_external_mount_point: "{{ user_home }}"

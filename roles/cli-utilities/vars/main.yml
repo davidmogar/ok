@@ -1,6 +1,7 @@
 ---
 
 cli_utilities_packages:
+  - alsa-utils
   - fzf
   - htop
   - iotop
@@ -11,6 +12,7 @@ cli_utilities_packages:
   - ncdu
   - nmap
   - ranger
+  - strace
   - tig
   - unrar
   - unzip

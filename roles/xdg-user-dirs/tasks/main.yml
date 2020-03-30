@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: xdg_user_dirs == 'install'
+
+- include_tasks: uninstall.yml
+  when: xdg_user_dirs == 'remove'

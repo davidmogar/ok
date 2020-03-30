@@ -7,7 +7,7 @@
   tasks:
     - name: Assert that user_id is defined when running as root
       assert:
-        msg: "user_id must be defined when running as root (missing --extra-vars "user_id=USER"?)"
+        msg: 'user_id must be defined when running as root (missing --extra-vars "user_id=USER"?)'
         that:
           - user_id is defined
       when: ansible_facts['user_id'] == "root"
@@ -144,6 +144,12 @@
 - hosts: all
   roles: [ vscode ]
   tags: vscode
+
+- hosts: all
+  roles: [ xdg-user-dirs ]
+  tags:
+    - desktop
+    - xdg-user-dirs
 
 - hosts: all
   roles: [ xorg ]

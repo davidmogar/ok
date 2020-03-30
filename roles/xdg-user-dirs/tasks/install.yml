@@ -1,0 +1,41 @@
+---
+
+- name: Ensure required package is installed
+  become: yes
+  pacman:
+    name: "{{ xdg_user_dirs_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Create config file
+  template:
+    dest: "{{ user_home }}/.config/user-dirs.dirs"
+    group: "{{ user_id }}"
+    mode: 0644
+    owner: "{{ user_id }}"
+    src: "user-dirs.dirs.j2"
+
+- name: Merge lists
+  set_fact:
+    xdg_directories: "{{ (xdg_user_dirs_default_directories.values() | list) + xdg_user_dirs_extra_directories | unique }}"
+
+- name: Create a directory if it does not exist
+  file:
+    group: "{{ user_id }}"
+    owner: "{{ user_id }}"
+    path: "{{ user_home }}/{{ item | capitalize }}"
+    state: directory
+    mode: 0755
+  loop: "{{ xdg_directories }}"
+  when: xdg_user_dirs_external_mount_point == user_home
+
+- name: Create symbolic links
+  file:
+    dest: "{{ user_home }}/{{ item | capitalize }}"
+    force: yes
+    group: "{{ user_id }}"
+    owner: "{{ user_id }}"
+    src: "{{ xdg_user_dirs_external_mount_point }}/{{ item | capitalize }}"
+    state: link
+  loop: "{{ xdg_directories }}"
+  when: xdg_user_dirs_external_mount_point != user_home

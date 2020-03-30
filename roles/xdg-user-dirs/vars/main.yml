@@ -1,0 +1,13 @@
+---
+
+xdg_user_dirs_default_directories:
+  desktop: Desktop
+  documents: Documents
+  download: Downloads
+  music: Music
+  pictures: Pictures
+  publicshare: Public
+  templates: Templates
+  videos: Videos
+
+xdg_user_dirs_package_name: xdg-user-dirs
