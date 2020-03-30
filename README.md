@@ -118,7 +118,7 @@ Note that both, limit and tags, are optional arguments.
     </tr>
     <tr>
       <td>rofi<a href="roles/rofi"></a></td>
-      <td>Installs <a href="https://github.com/davatorium/rofi"></a>.</td>
+      <td>Installs <a href="https://github.com/davatorium/rofi">rofi</a>.</td>
     </tr>
     <tr>
       <td>spotify<a href="roles/spotify"></a></td>
