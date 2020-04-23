@@ -153,4 +153,4 @@ Note that both, limit and tags, are optional arguments.
 
 ## License
 
-This project is under the GNU General Public License v3.0. Check [LICENSE](https://github.com/davidmogar/dotfiles/blob/master/LICENSE) file to see the full text full text.
+This project is under the GNU General Public License v3.0. Check [LICENSE](https://github.com/davidmogar/ok/blob/master/LICENSE) file to see the full text full text.
