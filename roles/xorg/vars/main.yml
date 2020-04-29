@@ -6,3 +6,4 @@ xorg_packages:
   - xorg-fonts-75dpi
   - xorg-xinit
   - xorg-server
+  - xorg-sev
