@@ -4,6 +4,7 @@ command_exists() {
         command -v "$@" >/dev/null 2>&1
 }
 
+command_exists dunst && dunst &
 command_exists picom && picom &
 command_exists polybar && polybar top &
 
@@ -13,14 +14,23 @@ xsetroot -cursor_name left_ptr
 # Toggle language with win + space
 setxkbmap us,es -option 'grp:win_space_toggle'
 
-feh --no-fehbg --bg-fill ~/.config/feh/wallpapers/gradient.png &
+feh --no-fehbg --bg-fill ~/.config/feh/wallpapers/dmg_blue.png &
 
 sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6
 
-bspc config border_width 0
+bspc config border_width 3
+bspc config focused_border_color "#3366ff"
+bspc config normal_border_color "#151a30"
 
 bspc config focus_follows_pointer true
-bspc config top_padding 30
+bspc config top_padding 35
 bspc config window_gap 15
+
+bspc config ignore_ewmh_focus true
+
+bspc rule -a discord desktop=^5
+bspc rule -a Spotify desktop=^3
+bspc rule -a Thunderbird desktop=^4
+bspc rule -a Zathura state=tiled
