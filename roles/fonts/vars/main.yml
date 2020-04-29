@@ -2,6 +2,8 @@
 
 fonts_packages:
   - noto-fonts
+  - noto-fonts-cjk
+  - noto-fonts-emoji
   - ttf-inconsolata
   - ttf-nerd-fonts-symbols
   - ttf-roboto
