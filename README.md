@@ -188,7 +188,7 @@ Some of the roles defined above allow to change their theme, affecting the look 
 theme: dmg_blue
 ```
 
-The available themes can be checked by listing the files inside the `files/themes` directory in any customizable role like <a href="roles/alacritty">alacritty</a>.
+The list of available themes can be checked by listing the files inside the `files/themes` directory in any customizable role such as <a href="roles/alacritty">alacritty</a>.
 
 ## License
 
