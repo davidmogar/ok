@@ -17,8 +17,8 @@
 
 - name: Create symbolic link to theme
   file:
-    dest: "{{ user_home }}/.config/polybar/colors/default"
+    dest: "{{ user_home }}/.config/polybar/config"
     group: "{{ user_id }}"
     owner: "{{ user_id }}"
-    src: "{{ user_home }}/.config/polybar/colors/{{ theme }}"
+    src: "{{ user_home }}/.config/polybar/themes/{{ theme }}"
     state: link

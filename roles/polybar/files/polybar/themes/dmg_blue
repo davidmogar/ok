@@ -1,5 +1,10 @@
 [colors]
-include-file = ~/.config/polybar/colors/default
+alert = #1bddcc
+background = #1a2138
+background-accent = #3366ff
+foreground = #ffffff
+foreground-accent = #ffffff
+foreground-dimmed = #6a748d
 
 [bar/top]
 background = ${colors.background}
