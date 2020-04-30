@@ -3,5 +3,5 @@ configuration {
     lines: 4;
     location: 0;
     modi: "run,ssh,window";
-    theme: "themes/default.rasi";
+    theme: "themes/{{ theme }}.rasi";
 }

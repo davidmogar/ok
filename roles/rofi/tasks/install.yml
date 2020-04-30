@@ -7,7 +7,7 @@
     state: latest
     update_cache: yes
 
-- name: Create rofi config file
+- name: Copy rofi themes
   copy:
     dest: "{{ user_home }}/.config"
     group: "{{ user_id }}"
@@ -15,10 +15,10 @@
     owner: "{{ user_id }}"
     src: rofi
 
-- name: Create symbolic link to theme
-  file:
-    dest: "{{ user_home }}/.config/rofi/themes/default.rasi"
+- name: Create rofi config file
+  template:
+    dest: "{{ user_home }}/.config/rofi/config.rasi"
     group: "{{ user_id }}"
+    mode: 0644
     owner: "{{ user_id }}"
-    src: "{{ user_home }}/.config/rofi/themes/{{ theme }}.rasi"
-    state: link
+    src: "config.rasi.j2"
