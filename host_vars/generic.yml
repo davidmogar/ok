@@ -36,4 +36,3 @@ zsh: 'install'
 #
 # Role-specific settings
 #
-# Enable/disable fuzzy completion (bash & zsh)?
