@@ -19,7 +19,7 @@
   template:
     dest: "{{ user_home }}/.config/bspwm/bspwmrc"
     group: "{{ user_id }}"
-    mode: 0644
+    mode: 0755
     owner: "{{ user_id }}"
     src: "bspwmrc.j2"
 
