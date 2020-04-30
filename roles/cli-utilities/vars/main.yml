@@ -8,6 +8,7 @@ cli_utilities_packages:
   - jq
   - man-db
   - man-pages
+  - mpv
   - ncdu
   - nmap
   - ranger
