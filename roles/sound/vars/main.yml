@@ -1,0 +1,7 @@
+---
+
+sound_packages:
+  - alsa-utils
+  - pavucontrol
+  - pulseaudio
+  - pulseaudio-alsa

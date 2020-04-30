@@ -137,6 +137,12 @@
     - rofi
 
 - hosts: all
+  roles: [ sound ]
+  tags:
+    - desktop
+    - sound
+
+- hosts: all
   roles: [ spotify ]
   tags: spotify
 

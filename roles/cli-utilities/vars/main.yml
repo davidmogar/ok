@@ -1,7 +1,6 @@
 ---
 
 cli_utilities_packages:
-  - alsa-utils
   - fzf
   - helm
   - htop
