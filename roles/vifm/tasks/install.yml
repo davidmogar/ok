@@ -1,0 +1,24 @@
+---
+
+- name: Ensure vifm is installed
+  become: yes
+  pacman:
+    name: "{{ vifm_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Copy config files
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    src: vifm
+
+- name: Create symbolic link to theme
+  file:
+    dest: "{{ user_home }}/.config/vifm/colors/default.vifm"
+    group: "{{ user_id }}"
+    owner: "{{ user_id }}"
+    src: "{{ user_home }}/.config/vifm/colors/{{ theme }}.vifm"
+    state: link

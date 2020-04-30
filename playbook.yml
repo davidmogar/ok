@@ -153,6 +153,10 @@
     - sxhkd
 
 - hosts: all
+  roles: [ vifm ]
+  tags: vifm
+
+- hosts: all
   roles: [ vscode ]
   tags: vscode
 

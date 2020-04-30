@@ -1,6 +1,6 @@
 ---
 
-- name: Ensure required packages are installed
+- name: Ensure vscode is installed
   become: yes
   pacman:
     name: "{{ vscode_package_name }}"

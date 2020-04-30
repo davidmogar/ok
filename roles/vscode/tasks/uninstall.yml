@@ -1,6 +1,6 @@
 ---
 
-- name: Ensure required packages are removed
+- name: Ensure vscode is removed
   become: yes
   pacman:
     extra_args: --recursive

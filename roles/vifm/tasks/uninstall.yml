@@ -1,0 +1,13 @@
+---
+
+- name: Ensure vifm is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ vifm_package_name }}"
+    state: absent
+
+- name: Ensure config directory is removed
+  file:
+    path: "{{ user_home }}/.config/vifm"
+    state: absent
