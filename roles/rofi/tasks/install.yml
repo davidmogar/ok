@@ -14,3 +14,11 @@
     mode: 0655
     owner: "{{ user_id }}"
     src: rofi
+
+- name: Create symbolic link to theme
+  file:
+    dest: "{{ user_home }}/.config/rofi/themes/default.rasi"
+    group: "{{ user_id }}"
+    owner: "{{ user_id }}"
+    src: "{{ user_home }}/.config/rofi/themes/{{ theme }}.rasi"
+    state: link

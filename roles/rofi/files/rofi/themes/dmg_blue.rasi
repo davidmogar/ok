@@ -1,0 +1,41 @@
+* {
+  background-color:          #1a2138;
+  background-color-active:   #2e3a59;
+  background-color-selected: #3366ff;
+  text-color:                #ffffff;
+  text-color-dimmed:         #6a748d;
+
+  font:                      "Noto Sans 12";
+}
+
+element {
+  padding: 10px;
+  text-color: @text-color-dimmed;
+}
+
+element normal active {
+  background-color: @background-color-active;
+  text-color: @text-color;
+}
+
+element selected {
+  background-color: @background-color-selected;
+  text-color: @text-color;
+}
+
+inputbar {
+  children: [prompt, textbox-prompt-colon, entry, case-indicator];
+  padding: 10px;
+}
+
+textbox-prompt-colon {
+  expand: false;
+  margin: 0 1ch 0 0;
+  str: ":";
+}
+
+window {
+  background-color: @background;
+  location: center;
+  width: 20%;
+}
