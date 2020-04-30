@@ -104,6 +104,11 @@
     - gtk
 
 - hosts: all
+  roles: [ lastpass ]
+  tags:
+    - lastpass
+
+- hosts: all
   roles: [ neovim ]
   tags: neovim
 

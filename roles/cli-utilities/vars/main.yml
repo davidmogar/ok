@@ -7,7 +7,6 @@ cli_utilities_packages:
   - htop
   - iotop
   - jq
-  - lastpass-cli
   - man-db
   - man-pages
   - ncdu

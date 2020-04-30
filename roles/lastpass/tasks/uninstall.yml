@@ -1,0 +1,14 @@
+---
+
+- name: Ensure lastpass is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ lastpass_package_name }}"
+    state: absent
+
+- name: Remove lpass directory
+  become: yes
+  file:
+    path: "{{ user_home }}/.local/share/lpass"
+    state: absent
