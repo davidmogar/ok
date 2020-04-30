@@ -4,6 +4,7 @@
 <p align="center">
   <a href="#usage">Usage</a> •
   <a href="#roles">Roles</a> •
+  <a href="#roles">Theming</a> •
   <a href="#license">License</a>
 </p>
 <h1></h1>
@@ -89,6 +90,10 @@ Note that both, limit and tags, are optional arguments.
       <td>Installs and configures the default cursor.</td>
     </tr>
     <tr>
+      <td><a href="roles/dunst">dunst</a></td>
+      <td>Configures system notifications to use <a href="https://github.com/dunst-project/dunst">dunst</a>. The flag <a href="chrome://flags/#enable-native-notifications">enable-native-notifications</a> is required to get native notifications with Chromium.</td>
+    </tr>
+    <tr>
       <td><a href="roles/fonts">fonts</a></td>
       <td>Installs a curated <a href="roles/fonts/vars/main.yml">list</a> of fonts.</td>
     </tr>
@@ -97,16 +102,20 @@ Note that both, limit and tags, are optional arguments.
       <td>Installs <a href="">gtk3</a> and the default theme.</td>
     </tr>
     <tr>
+      <td><a href="roles/lastpass">lastpass</a></td>
+      <td>Installs <a href="https://github.com/lastpass/lastpass-cli">lastpass-cli</a>.</td>
+    </tr>
+    <tr>
       <td><a href="roles/mirrorlist">mirrorlist</a></td>
       <td>Configures pacman's mirrorlist by using <a href="https://wiki.archlinux.org/index.php/Reflector">Reflector</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/neovim">neovim</a></td>
-      <td>Installs <a href="https://neovim.io/">Neovim</a>.</td>
+      <td><a href="roles/neofetch">neofetch</a></td>
+      <td>Installs <a href="https://github.com/dylanaraps/neofetch">neofetch</a>.</td>
     </tr>
     <tr>
-      <td><a href="roles/notifications">notifications</a></td>
-      <td>Configures system notifications to use <a href="https://github.com/dunst-project/dunst">dunst</a>. The flag <a href="chrome://flags/#enable-native-notifications">enable-native-notifications</a> is required to get native notifications with Chromium.</td>
+      <td><a href="roles/neovim">neovim</a></td>
+      <td>Installs <a href="https://neovim.io/">Neovim</a>.</td>
     </tr>
     <tr>
       <td><a href="roles/picom">picom</a></td>
@@ -117,8 +126,16 @@ Note that both, limit and tags, are optional arguments.
       <td>Installs <a href="https://github.com/polybar/polybar">polybar</a>.</td>
     </tr>
     <tr>
+      <td><a href="roles/qutebrowser">qutebrowser</a></td>
+      <td>Installs <a href="https://qutebrowser.org/">qutebrowser</a>.</td>
+    </tr>
+    <tr>
       <td><a href="roles/rofi">rofi</a></td>
       <td>Installs <a href="https://github.com/davatorium/rofi">rofi</a>.</td>
+    </tr>
+    <tr>
+      <td><a href="roles/sound">sound</a></td>
+      <td>Installs packages to manage system's sound.</td>
     </tr>
     <tr>
       <td><a href="roles/spotify">spotify</a></td>
@@ -137,6 +154,10 @@ Note that both, limit and tags, are optional arguments.
       <td>Manages the creation of users.</td>
     </tr>
     <tr>
+      <td><a href="roles/vifm">vifm</a></td>
+      <td>Installs <a href="https://vifm.info/">vifm</a>.</td>
+    </tr>
+    <tr>
       <td><a href="roles/vscode">vscode</a></td>
       <td>Installs <a href="https://code.visualstudio.com/">VS Code</a>.</td>
     </tr>
@@ -148,8 +169,26 @@ Note that both, limit and tags, are optional arguments.
       <td><a href="roles/xorg">xorg</a></td>
       <td>Installs <a href="https://www.x.org/wiki">Xorg</a>.</td>
     </tr>
+    <tr>
+      <td><a href="roles/zathura">zathura</a></td>
+      <td>Installs <a href="https://pwmt.org/projects/zathura/">zathura</a>.</td>
+    </tr>
+    <tr>
+      <td><a href="roles/zsh">zsh</a></td>
+      <td>Installs <a href="https://www.zsh.org/">zsh</a> along with <a href="https://github.com/zsh-users/zsh-autosuggestions">autosuggestions</a> and <a href="https://github.com/zsh-users/zsh-syntax-highlighting">syntax-highlighting</a> plugins.</td>
+    </tr>
   </tbody>
 </table>
+
+## Theming
+
+Some of the roles defined above allow to change their theme, affecting the look of the installed applications. This theme can be selected by defining an existing value for the `theme` variable:
+
+```yaml1
+theme: dmg_blue
+```
+
+The available themes can be checked by listing the files inside the `files/themes` directory in any customizable role like <a href="roles/alacritty">alacritty</a>.
 
 ## License
 
