@@ -109,6 +109,10 @@
     - lastpass
 
 - hosts: all
+  roles: [ neofetch ]
+  tags: neofetch
+
+- hosts: all
   roles: [ neovim ]
   tags: neovim
 

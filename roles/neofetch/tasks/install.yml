@@ -1,0 +1,16 @@
+---
+
+- name: Ensure neofetch is installed
+  become: yes
+  pacman:
+    name: "{{ neofetch_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Copy config files
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    src: neofetch

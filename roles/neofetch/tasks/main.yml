@@ -1,0 +1,7 @@
+---
+
+- include_tasks: install.yml
+  when: neofetch == 'install'
+
+- include_tasks: uninstall.yml
+  when: neofetch == 'remove'
