@@ -7,7 +7,10 @@
     name: "{{ neovim_package_name }}"
     state: absent
 
-- name: Ensure config directory is removed
+- name: Ensure config directories are removed
   file:
-    path: "{{ user_home }}/.config/nvim"
+    path: "{{ user_home }}/{{ item }}"
     state: absent
+  loop:
+    - ".config/nvim"
+    - ".local/share/nvim/site/autoload"

@@ -7,18 +7,26 @@
     state: latest
     update_cache: yes
 
-- name: Ensure config directory exists
+- name: Create neovim config file
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0644
+    owner: "{{ user_id }}"
+    src: nvim
+
+- name: Ensure autoload path exist
   file:
     group: "{{ user_id }}"
     mode: 0755
     owner: "{{ user_id }}"
-    path: "{{ user_home }}/.config/nvim"
+    path: "{{ user_home }}/.local/share/nvim/site/autoload"
     state: directory
 
-- name: Create neovim config file
-  copy:
-    dest: "{{ user_home }}/.config/nvim/init.vim"
+- name: Download vim-plug
+  get_url:
+    dest: "{{ user_home }}/.local/share/nvim/site/autoload/plug.vim"
     group: "{{ user_id }}"
     mode: 0644
     owner: "{{ user_id }}"
-    src: init.vim
+    url: "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
