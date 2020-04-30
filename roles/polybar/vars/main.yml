@@ -1,3 +1,5 @@
 ---
 
-polybar_package_name: polybar
+polybar_packages:
+  - polybar
+  - python-dbus

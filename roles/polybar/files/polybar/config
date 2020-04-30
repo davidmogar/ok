@@ -1,0 +1,121 @@
+[colors]
+include-file = ~/.config/polybar/colors/default
+
+[bar/top]
+background = ${colors.background}
+border-color = #00000000
+border-size = 0
+cursor-click = pointer
+cursor-scroll = arrow
+enable-ipc = true
+fixed-center = true
+font-0 = Noto Sans Medium:size=12;3
+font-1 = Symbols Nerd Font:size=14;3
+font-2 = Symbols Nerd Font:size=16;4
+foreground = ${colors.foreground}
+height = 35
+line-color = #f00
+line-size = 0
+module-margin-left = 3
+module-margin-right = 3
+modules-center = spotify
+modules-left = bspwm
+modules-right = pulseaudio xkeyboard date powermenu
+padding-left = 0
+padding-right = 5
+scroll-down = bspwm-deskprev
+scroll-up = bspwm-desknext
+width = 100%
+wm-restack = bspwm
+
+[module/bspwm]
+enable-scroll = false
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground-dimmed}
+label-empty-padding = 4
+label-focused = %icon%
+label-focused-foreground = ${colors.background-accent}
+label-focused-padding = 4
+label-occupied = %icon%
+label-occupied-padding = 4
+label-urgent = %icon%
+label-urgent-background = ${colors.background-accent}
+label-urgent-foreground = ${colors.foreground-accent}
+label-urgent-padding = 4
+type = internal/bspwm
+ws-icon-0 = 1;%{T3}
+ws-icon-1 = 2;%{T3}
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;%{T3}ﰂ
+
+[module/date]
+date = "%a"
+date-alt = %d/%m/%Y
+interval = 5
+label = %date% %time%
+time = %H:%M
+time-alt = %H:%M
+type = internal/date
+
+[module/powermenu]
+expand-right = false
+format-font = 3
+label-close = 
+label-close-margin-left = 4
+label-open = 
+menu-0-0 = 襤
+menu-0-0-background = ${colors.background-accent}
+menu-0-0-foreground = ${colors.foreground-accent}
+menu-0-0-exec = poweroff
+menu-0-0-padding = 4
+menu-0-1 = 累
+menu-0-1-background = ${colors.background-accent}
+menu-0-1-foreground = ${colors.foreground-accent}
+menu-0-1-exec = reboot
+menu-0-1-padding = 4
+menu-0-2 = 鈴
+menu-0-2-background = ${colors.background-accent}
+menu-0-2-foreground = ${colors.foreground-accent}
+menu-0-2-exec = systemctl suspend
+menu-0-2-padding = 3
+type = custom/menu
+
+[module/pulseaudio]
+format-volume = <ramp-volume> <label-volume>
+interval = 5
+label-muted = 婢  muted
+label-muted-font = 3
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-font = 3
+ramp-volume-padding = 1
+;sink = name from `pacmd list-sink`. Using default if undefined
+type = internal/pulseaudio
+use-ui-max = false
+
+[module/spotify]
+type = custom/script
+interval = 1
+format = <label>
+exec = python ~/.config/polybar/plugins/spotify_status.py -f '{song} - {artist}' 2> /dev/null
+
+[module/xkeyboard]
+blacklist-0 = num lock
+blacklist-1 = caps lock
+format-prefix = " %{T3}  "
+label-indicator-background = ${colors.foreground}
+label-indicator-padding = 2
+label-layout = %icon%
+layout-icon-0 = es;Spanish
+layout-icon-1 = us;English
+layout-icon-default =
+type = internal/xkeyboard
+
+[global/wm]
+margin-bottom = 5
+margin-top = 5

@@ -1,8 +1,24 @@
 ---
 
-- name: Ensure polybar is installed
-  include_role:
-    name: aur
-  vars:
-    aur_package:
-      name: "{{ polybar_package_name }}"
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ polybar_packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Copy config files
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    src: polybar
+
+- name: Create symbolic link to theme
+  file:
+    dest: "{{ user_home }}/.config/polybar/colors/default"
+    group: "{{ user_id }}"
+    owner: "{{ user_id }}"
+    src: "{{ user_home }}/.config/polybar/colors/{{ theme }}"
+    state: link

@@ -7,3 +7,5 @@ mirrorlist_countries:
 st_patches:
   - scrollback:
       - st-scrollback
+
+theme: dmg_blue
