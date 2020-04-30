@@ -1,6 +1,6 @@
 ---
 
-- name: Ensure spotify is removed
+- name: Ensure polybar is removed
   become: yes
   pacman:
     extra_args: --recursive
