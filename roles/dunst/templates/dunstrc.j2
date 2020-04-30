@@ -1,0 +1,58 @@
+[experimental]
+    per_monitor_dpi = false
+
+[global]
+    always_run_script = true
+    browser = /usr/bin/qutebrowser --target tab
+    class = Dunst
+    dmenu = /usr/bin/dmenu -p dunst:
+    ellipsize = end
+    follow = mouse
+    force_xinerama = false
+    format = "<b>%s</b>\n%b"
+    hide_duplicate_count = false
+    history_length = 20
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_position = left
+    idle_threshold = 120
+    ignore_newline = no
+    indicate_hidden = yes
+    markup = full
+    max_icon_size = 48
+    monitor = 0
+    mouse_left_click = close_current
+    mouse_middle_click = do_action
+    mouse_right_click = close_all
+    notification_height = 0
+    show_age_threshold = 60
+    show_indicators = yes
+    sort = yes
+    stack_duplicates = true
+    startup_notification = false
+    sticky_history = yes
+    title = Dunst
+    verbosity = mesg
+    vertical_alignment = top
+    word_wrap = no
+
+#------------------------------
+# Theme specific
+#------------------------------
+{% include "files/themes/" + theme %}
+
+#------------------------------
+# Shortcuts
+#------------------------------
+[shortcuts]
+    close = ctrl+space
+    close_all = ctrl+shift+space
+    context = ctrl+shift+period
+    history = ctrl+grave
+
+#------------------------------
+# Overrides
+#------------------------------
+[Spotify]
+    appname = Spotify
+    history_ignore = yes
+    skip_display = yes

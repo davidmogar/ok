@@ -92,6 +92,12 @@
     - desktop
 
 - hosts: all
+  roles: [ dunst ]
+  tags:
+    - desktop
+    - dunst
+
+- hosts: all
   roles: [ fonts ]
   tags:
     - desktop
@@ -115,12 +121,6 @@
 - hosts: all
   roles: [ neovim ]
   tags: neovim
-
-- hosts: all
-  roles: [ notifications ]
-  tags:
-    - desktop
-    - notifications
 
 - hosts: all
   roles: [ picom ]
@@ -182,7 +182,7 @@
     - desktop
     - zathura
 
-- host: all
+- hosts: all
   roles: [ zsh ]
   tags:
     - zsh

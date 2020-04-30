@@ -1,10 +1,10 @@
 ---
 
-- name: Ensure notifications is removed
+- name: Ensure required packages are removed
   become: yes
   pacman:
     extra_args: --recursive
-    name: "{{ notifications_package_names }}"
+    name: "{{ dunst_packages }}"
     state: absent
 
 - name: Ensure config directory is removed

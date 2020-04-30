@@ -1,4 +1,4 @@
 ---
 
 # 'install', 'remove' or 'ignore'
-notifications: 'ignore'
+dunst: 'ignore'
