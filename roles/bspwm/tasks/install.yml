@@ -7,13 +7,21 @@
     state: latest
     update_cache: yes
 
-- name: Create bspwm config file
+- name: Copy bspwm themes
   copy:
     dest: "{{ user_home }}/.config"
     group: "{{ user_id }}"
     mode: 0755
     owner: "{{ user_id }}"
     src: bspwm
+
+- name: Create bspwm config file
+  template:
+    dest: "{{ user_home }}/.config/bspwm/bspwmrc"
+    group: "{{ user_id }}"
+    mode: 0644
+    owner: "{{ user_id }}"
+    src: "bspwmrc.j2"
 
 - name: Add wallpapers
   become: yes

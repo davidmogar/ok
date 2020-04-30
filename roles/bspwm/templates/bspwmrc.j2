@@ -1,0 +1,48 @@
+#!/bin/sh
+
+#------------------------------
+# Functions
+#------------------------------
+command_exists() {
+  command -v "$@" >/dev/null 2>&1
+}
+
+#------------------------------
+# Start processes
+#------------------------------
+command_exists dunst && dunst &
+command_exists picom && picom &
+command_exists polybar && polybar top &
+
+sxhkd &
+
+#------------------------------
+# Fix default cursor
+#------------------------------
+xsetroot -cursor_name left_ptr
+
+#------------------------------
+# Toggle language with win + space
+#------------------------------
+setxkbmap us,es -option 'grp:win_space_toggle'
+
+#------------------------------
+# Configure bspwm
+#------------------------------
+bspc monitor -d 1 2 3 4 5 6
+
+bspc config focus_follows_pointer true
+bspc config top_padding 35
+bspc config window_gap 15
+
+bspc config ignore_ewmh_focus true
+
+bspc rule -a discord desktop=^5
+bspc rule -a Spotify desktop=^3
+bspc rule -a Thunderbird desktop=^4
+bspc rule -a Zathura state=tiled
+
+#------------------------------
+# Load theme
+#------------------------------
+source ~/.config/bspwm/themes/{{ theme }}
