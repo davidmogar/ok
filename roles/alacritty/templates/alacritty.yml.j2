@@ -1,0 +1,11 @@
+key_bindings:
+  # https://github.com/alacritty/alacritty/issues/3652
+  - { key: Back, mods: Shift, chars: "\x7f" }
+
+scrolling:
+  history: 10000
+
+#------------------------------
+# Theme specific
+#------------------------------
+{% include "files/themes" + theme %}

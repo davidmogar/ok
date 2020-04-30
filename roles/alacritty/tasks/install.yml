@@ -8,9 +8,9 @@
     update_cache: yes
 
 - name: Create alacritty config file
-  copy:
-    dest: "{{ user_home }}/.config"
+  template:
+    dest: "{{ user_home }}/.config/alacritty"
     group: "{{ user_id }}"
     mode: 0644
     owner: "{{ user_id }}"
-    src: alacritty
+    src: "alacritty.yml.j2"
