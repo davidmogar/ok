@@ -1,0 +1,7 @@
+---
+
+zsh_packages:
+  - zsh
+  - zsh-autosuggestions
+  - zsh-completions
+  - zsh-syntax-highlighting

@@ -28,6 +28,7 @@ vscode: 'install'
 xdg_user_dirs: 'install'
 xorg: 'install'
 zathura: 'install'
+zsh: 'install'
 
 #
 # Role-specific settings

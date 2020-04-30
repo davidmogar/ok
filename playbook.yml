@@ -173,3 +173,8 @@
   tags:
     - desktop
     - zathura
+
+- host: all
+  roles: [ zsh ]
+  tags:
+    - zsh

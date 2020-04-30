@@ -4,6 +4,7 @@
   user:
     groups: wheel
     name: "{{ user_id }}"
+    shell: "/bin/zsh"
 
 - name: Allow to change expired passwords on login
   become: yes

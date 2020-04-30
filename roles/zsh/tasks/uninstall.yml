@@ -1,0 +1,13 @@
+---
+
+- name: Ensure required packages are removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ zathura_packages }}"
+    state: absent
+
+- name: Ensure config directory removed
+  file:
+    path: "{{ user_home }}/.config/zathura"
+    state: absent
