@@ -7,6 +7,14 @@
     state: latest
     update_cache: yes
 
+- name: Create config directory
+  file:
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    path: "{{ user_home }}/.config/bspwm"
+    state: directory
+
 - name: Create bspwm config file
   template:
     dest: "{{ user_home }}/.config/bspwm/bspwmrc"
