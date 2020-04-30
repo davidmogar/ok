@@ -7,9 +7,17 @@
     state: latest
     update_cache: yes
 
+- name: Copy alacritty themes
+  copy:
+    dest: "{{ user_home }}/.config"
+    group: "{{ user_id }}"
+    mode: 0655
+    owner: "{{ user_id }}"
+    src: alacritty
+
 - name: Create alacritty config file
   template:
-    dest: "{{ user_home }}/.config/alacritty"
+    dest: "{{ user_home }}/.config/alacritty/alacritty.yml"
     group: "{{ user_id }}"
     mode: 0644
     owner: "{{ user_id }}"
