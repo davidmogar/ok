@@ -3,7 +3,7 @@
 - name: Ensure rofi package is installed
   become: yes
   pacman:
-    name: "{{ rofi_packages_name }}"
+    name: "{{ rofi_package_name }}"
     state: latest
     update_cache: yes
 
