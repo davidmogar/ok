@@ -1,0 +1,20 @@
+config.load_autoconfig()
+
+c.input.insert_mode.auto_leave = False
+
+c.spellcheck.languages = [ 'en-US', 'es-ES' ]
+
+c.tabs.indicator.width = 0
+c.tabs.show = 'multiple'
+
+c.url.searchengines = {
+    'DEFAULT': 'https://www.google.com.ar/search?hl=en&q={}',
+    'h': 'https://judy.cern.ch/hosts?utf8=%E2%9C%93&search={}',
+    'hg': 'https://judy.cern.ch/hostgroups?utf8=%E2%9C%93&search={}',
+    'wa': 'https://wiki.archlinux.org/?search={}'
+}
+
+#------------------------------
+# Theme specific
+#------------------------------
+{% include "files/themes/" + theme %}

@@ -1,0 +1,30 @@
+---
+
+- name: Ensure qutebrowser package is installed
+  become: yes
+  pacman:
+    name: "{{ qutebrowser_package_name }}"
+    state: latest
+    update_cache: yes
+
+- name: Create config directory
+  file:
+    group: "{{ user_id }}"
+    mode: 0755
+    owner: "{{ user_id }}"
+    path: "{{ user_home }}/.config/qutebrowser"
+    state: directory
+
+- name: Create rofi config file
+  template:
+    dest: "{{ user_home }}/.config/qutebrowser/config.py"
+    group: "{{ user_id }}"
+    mode: 0644
+    owner: "{{ user_id }}"
+    src: "config.py.j2"
+
+- name: Install dictionaries
+  become: yes
+  become_user: "{{ user_id }}"
+  command: "/usr/share/qutebrowser/scripts/dictcli.py install {{ item }}"
+  loop: "{{ qutebrowser_extra_dictionaries }}"

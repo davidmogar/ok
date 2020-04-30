@@ -135,6 +135,11 @@
     - polybar
 
 - hosts: all
+  roles: [ qutebrowser ]
+  tags:
+    - qutebrowser
+
+- hosts: all
   roles: [ rofi ]
   tags:
     - desktop
@@ -179,7 +184,6 @@
 - hosts: all
   roles: [ zathura ]
   tags:
-    - desktop
     - zathura
 
 - hosts: all

@@ -1,0 +1,13 @@
+---
+
+- name: Ensure qutebrowser package is removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ qutebrowser_package_name }}"
+    state: absent
+
+- name: Ensure qutebrowser config directory is removed
+  file:
+    path: "{{ user_home }}/.config/qutebrowser"
+    state: absent

@@ -1,0 +1,7 @@
+---
+
+# 'install', 'remove' or 'ignore'
+qutebrowser: 'ignore'
+
+qutebrowser_extra_dictionaries:
+  - es-ES
