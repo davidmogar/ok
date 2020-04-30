@@ -7,7 +7,7 @@
     name: "{{ zathura_packages }}"
     state: absent
 
-- name: Ensure config directory removed
+- name: Ensure config directory is removed
   file:
     path: "{{ user_home }}/.config/zathura"
     state: absent
