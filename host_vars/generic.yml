@@ -27,6 +27,8 @@ sxhkd: 'install'
 vscode: 'install'
 xdg_user_dirs: 'install'
 xorg: 'install'
+zathura: 'install'
+
 
 #
 # Role-specific settings

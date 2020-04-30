@@ -167,3 +167,9 @@
   tags:
     - desktop
     - xorg
+
+- hosts: all
+  roles: [ zathura ]
+  tags:
+    - desktop
+    - zathura

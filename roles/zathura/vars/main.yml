@@ -1,0 +1,5 @@
+---
+
+zathura_packages:
+  - zathura
+  - zathura-pdf-mupdf
