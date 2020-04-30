@@ -4,5 +4,5 @@
   become: yes
   pacman:
     extra_args: --recursive
-    name: "{{ cli_utilities_packages }}"
+    name: "{{ cli_utilities_packages + cli_utilities_aur_packages}}"
     state: absent
