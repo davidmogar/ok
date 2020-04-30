@@ -7,14 +7,6 @@
     state: latest
     update_cache: yes
 
-- name: Copy bspwm themes
-  copy:
-    dest: "{{ user_home }}/.config"
-    group: "{{ user_id }}"
-    mode: 0755
-    owner: "{{ user_id }}"
-    src: bspwm
-
 - name: Create bspwm config file
   template:
     dest: "{{ user_home }}/.config/bspwm/bspwmrc"

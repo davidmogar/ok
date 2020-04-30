@@ -43,6 +43,6 @@ bspc rule -a Thunderbird desktop=^4
 bspc rule -a Zathura state=tiled
 
 #------------------------------
-# Load theme
+# Theme specific
 #------------------------------
-source ~/.config/bspwm/themes/{{ theme }}
+{% include "files/themes" + theme %}
