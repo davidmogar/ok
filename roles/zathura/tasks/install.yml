@@ -7,18 +7,18 @@
     state: latest
     update_cache: yes
 
-- name: Copy config files
-  copy:
-    dest: "{{ user_home }}/.config"
+- name: Create config directory
+  file:
     group: "{{ user_id }}"
     mode: 0755
     owner: "{{ user_id }}"
-    src: zathura
+    path: "{{ user_home }}/.config/zathura"
+    state: directory
 
-- name: Create symbolic link to theme
-  file:
-    dest: "{{ user_home }}/.config/zathura/themes/default"
+- name: Create zathura config file
+  template:
+    dest: "{{ user_home }}/.config/zathura/zathurarc"
     group: "{{ user_id }}"
+    mode: 0644
     owner: "{{ user_id }}"
-    src: "{{ user_home }}/.config/zathura/themes/{{ theme }}"
-    state: link
+    src: 'zathurarc.j2'
