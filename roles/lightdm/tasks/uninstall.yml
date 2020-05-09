@@ -1,0 +1,17 @@
+---
+
+- name: Ensure required packages are removed
+  become: yes
+  pacman:
+    extra_args: --recursive
+    name: "{{ lightdm_package_name }}"
+    state: absent
+
+- name: Ensure config and theme directories are removed
+  become: yes
+  file:
+    path: "{{ item }}"
+    state: absent
+  loop:
+    - '/etc/lightdm'
+    - '/usr/share/lightdm-webkit'

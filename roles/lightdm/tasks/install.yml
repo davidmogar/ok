@@ -1,0 +1,38 @@
+---
+
+- name: Ensure required packages are installed
+  become: yes
+  pacman:
+    name: "{{ lightdm_packages }}"
+    state: latest
+    update_cache: yes
+
+- name: Create config and theme directories
+  become: yes
+  file:
+    mode: 0755
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - '/etc/lightdm'
+    - '/usr/share/lightdm-webkit/themes'
+
+- name: Clone theme
+  become: yes
+  git:
+    dest: '/usr/share/lightdm-webkit/themes/lightdm-webkit2-{{ theme }}'
+    repo: "https://github.com/davidmogar/lightdm-webkit2-{{ theme }}.git"
+
+- name: Create lightdm config file
+  become: yes
+  copy:
+    dest: '/etc/lightdm/lightdm.conf'
+    mode: 0644
+    src: 'lightdm.conf'
+
+- name: Create lightdm-webkit2-greeter config file
+  become: yes
+  template:
+    dest: '/etc/lightdm/lightdm-webkit2-greeter.conf'
+    mode: 0644
+    src: 'lightdm-webkit2-greeter.conf.j2'

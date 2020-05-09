@@ -106,6 +106,10 @@ Note that both, limit and tags, are optional arguments.
       <td>Installs <a href="https://github.com/lastpass/lastpass-cli">lastpass-cli</a>.</td>
     </tr>
     <tr>
+      <td><a href="roles/lightdm">lightdm</a></td>
+      <td>Installs <a href="https://github.com/canonical/lightdm">lightdm</a> and the <a href="https://github.com/Antergos/web-greeter">lightdm-webkit2</a> greeter.</td>
+    </tr>
+    <tr>
       <td><a href="roles/mirrorlist">mirrorlist</a></td>
       <td>Configures pacman's mirrorlist by using <a href="https://wiki.archlinux.org/index.php/Reflector">Reflector</a>.</td>
     </tr>
