@@ -143,7 +143,7 @@ Note that both, limit and tags, are optional arguments.
     </tr>
     <tr>
       <td><a href="roles/spotify">spotify</a></td>
-      <td>Installs <a href="https://www.spotify.com/">Spotify</a>.</td>
+      <td>Installs <a href="https://www.spotify.com">Spotify</a> and <a href="https://github.com/khanhas/spicetify-cli">spicetify-cli</a>. Spotify is made wm-friendly through <a href="https://github.com/dasJ/spotifywm">spotifywm</a>.</td>
     </tr>
     <tr>
       <td><a href="roles/sudo">sudo</a></td>

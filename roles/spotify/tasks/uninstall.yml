@@ -1,8 +1,14 @@
 ---
 
-- name: Ensure spotify is removed
+- name: Ensure required packages are removed
   become: yes
+  loop: "{{ spotify_aur_packages }}"
   pacman:
     extra_args: --recursive
-    name: "{{ spotify_package_name }}"
+    name: "{{ spotify_aur_packages | map(attribute='name') | list }}"
+    state: absent
+
+- name: Ensure spicetify config directory is removed
+  file:
+    path: "{{ user_home }}/.config/spicetify"
     state: absent
