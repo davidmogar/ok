@@ -1,7 +1,3 @@
-# Quit bspwm
-super + shift + e
-	bspc quit
-
 # Lunch application/Change window
 super + {d,w}
 	rofi -show run
